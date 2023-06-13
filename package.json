@@ -7,9 +7,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
-    "@mapbox/rehype-prism": "^0.8.0",
+    "@mapbox/rehype-prism": "^0.7.0",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/typography": "^0.5.2",
@@ -18,14 +20,16 @@
     "dotenv": "^16.0.0",
     "glob": "^7.2.0",
     "globby": "^13.1.1",
-    "linkinator": "^3.0.3",
+    "linkinator": "^5.0.1",
     "next": "^12.3.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.27.1",
     "react-slick": "^0.28.1",
     "rehype-slug": "^5.0.1",
-    "xstate": "^4.30.5"
+    "xstate": "^4.30.5",
+    "typescript": "latest",
+    "cypress": "^12.14.0"
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
@@ -34,7 +38,6 @@
     "@types/react": "^17.0.39",
     "autoprefixer": "^10.4.2",
     "chai": "^4.3.6",
-    "cypress": "^12.14.0",
     "eslint": "^8.10.0",
     "eslint-config-next": "^12.1.0",
     "eslint-config-prettier": "^8.5.0",
@@ -51,8 +54,12 @@
     "slugify": "^1.6.5",
     "tailwindcss": "^3.0.23",
     "tsconfig-paths": "^3.13.0",
-    "typescript": "^4.6.2",
     "unslugify": "^1.0.2",
     "url-loader": "^4.1.1"
-  }
+  },
+  "stepDefinitions": [
+    "cypress/e2e/[filepath]/**/*.{js,ts}",
+    "cypress/e2e/[filepath].{js,ts}",
+    "cypress/support/step_definitions/**/*.{js,ts}"
+  ]
 }
