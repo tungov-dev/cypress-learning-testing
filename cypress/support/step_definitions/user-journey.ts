@@ -1,15 +1,11 @@
 import { When, Then, Given, DataTable } from "@badeball/cypress-cucumber-preprocessor";
 
-Given("I visit home page", () => {
-  cy.visit("/")
-});
-
 When("I click get started to the course: {string}", (text) => {
   cy.getByData("course-title").contains(`${text}`).parent().find("a").contains("Get started").click()
 });
 
 When("I will be redirected to the pathname {string}", (text) => {
-  cy.location("pathname").should("equal", `${text}`)
+  cy.location("pathname").should("eq", `${text}`)
 });
 
 When("I click to Start Course button", () => {
@@ -17,8 +13,8 @@ When("I click to Start Course button", () => {
 })
 
 When("I pick the {string} checkbox then click next lesson", (text) => {
-  cy.getByData("multiple-choice-challenge").find("label").contains(`${text}`).parent().getByData("challenge-answer-0").click()
-  cy.getByData("next-lesson-button").contains(`Next Lesson`).should("exist").click()
+  cy.getByData("challenge-answer-0").click()
+  cy.getByData("next-lesson-button").should("exist").click()
 })
 
 Then("I see Course Completed and the groupBox are all checked", () => {

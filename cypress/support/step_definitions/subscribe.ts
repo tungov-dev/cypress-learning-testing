@@ -1,9 +1,5 @@
 import { When, Then, Given, DataTable } from "@badeball/cypress-cucumber-preprocessor";
 
-Given("I visit home page", () => {
-    cy.visit("/")
-});
-
 When("I input {string} into the subscribe form and click submit button", (text) => {
     cy.getByData("email-input").type(`${text}`)
     cy.getByData("submit-button").click()
