@@ -8,7 +8,7 @@ When("I see the hero heading", () => {
   cy.getByData("hero-heading").should('exist')
 });
 
-Then("The hero heading contains {string}", (text) => {
+Then("The hero heading contains {string}", (text: string) => {
   cy.getByData("hero-heading").contains(
     `${text}`
   )
@@ -24,10 +24,10 @@ Then("I see they have correct naming", (table: DataTable) => {
   }
 });
 
-When("I click to the course: {string}", (courseName) => {
+When("I click to the course: {string}", (courseName: string) => {
   cy.getByData("course-title").contains(`${courseName}`).parent().find("a").contains("Get started").click()
 });
 
-Then("I should be redirected to the pathname {string}", (pathname) => {
+Then("I should be redirected to the pathname {string}", (pathname: string) => {
   cy.location("pathname").should("equal", `${pathname}`)
 });
